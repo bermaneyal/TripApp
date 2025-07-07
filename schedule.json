@@ -33,7 +33,7 @@
     "title": "רכבת חיפה- נתב\"ג",
     "startTime": "2025-07-10T15:25:00",
     "endTime": "2025-07-10T16:50:00",
-    "location": "",
+    "location": "תחנת רכבת השמונה",
     "description": ""
   },
   {
@@ -41,7 +41,7 @@
     "title": "טרמינל 3 + דיוטי",
     "startTime": "2025-07-10T16:50:00",
     "endTime": "2025-07-10T19:00:00",
-    "location": "",
+    "location": "טרמינל 3",
     "description": ""
   },
   {
@@ -49,7 +49,7 @@
     "title": "תחילת עליה למטוס",
     "startTime": "2025-07-10T19:00:00",
     "endTime": "2025-07-10T19:40:00",
-    "location": "",
+    "location": "טרמינל 3",
     "description": ""
   },
   {
@@ -57,7 +57,7 @@
     "title": "המראה TLV",
     "startTime": "2025-07-10T19:40:00",
     "endTime": "2025-07-10T23:20:00",
-    "location": "",
+    "location": "כל אחד בכיסא שלו",
     "description": ""
   },
   {
