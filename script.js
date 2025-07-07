@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTimeDiv = document.getElementById('current-time');
     const countdownDiv = document.getElementById('countdown-to-event');
     const installButton = document.getElementById('install-app-button');
+    const reloadButton = document.getElementById('reload-button');
     let scheduleData = []; // To store the fetched schedule
 
     // Add listeners when the DOM content is fully loaded
@@ -57,8 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('App is running in standalone mode (already installed).');
             installButton.style.display = 'none'; // Hide button if already installed
         }
+
+        if (reloadButton) { // Ensure the button exists before adding listener
+            reloadButton.addEventListener('click', () => {
+                console.log('Reload button clicked. Reloading page...');
+                window.location.reload(); // This reloads the current page
+            });
+        }
     });
 
+    
     // --- Helper Functions ---
 
     // Format time for display (e.g., 08:00)
