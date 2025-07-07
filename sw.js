@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trip-schedule-cache-v${APP_VERSION}'; // Increment version for updates
+const CACHE_NAME = 'trip-schedule-cache-v1.0.4'; // Increment version for updates
 
 // List of static assets that are part of your app's "shell"
 const urlsToCache = [
@@ -82,16 +82,25 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+    console.log('[Service Worker] Activating...');
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('[Service Worker] Deleting old cache:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
+        }).then(() => {
+            console.log('[Service Worker] Claiming clients.');
+            return self.clients.claim(); // Make the new SW control existing clients
+        })
+        .then(() => {
+            console.log('[Service Worker] Skipping waiting and activating immediately.');
+            return self.skipWaiting(); // Make the new SW activate immediately
         })
     );
 });
