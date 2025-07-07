@@ -1,11 +1,11 @@
 {
-    "name": "לו\"ז טיול החברה",
-    "short_name": "לו\"ז טיול",
+    "name": "לוז טיול גיאורגיה 2025",
+    "short_name": "גאורגיה 2025",
     "description": "אפליקציית לו\"ז לטיול חברה",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#4CAF50",
+    "theme_color": "#FF9800",
     "icons": [
         {
             "src": "images/LargeTile.scale-100.png",
