@@ -1,3 +1,5 @@
+const APP_VERSION = '1.0.2';
+
 document.addEventListener('DOMContentLoaded', () => {
     let deferredPrompt;
     const scheduleContainer = document.getElementById('schedule-container');
@@ -7,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const countdownDiv = document.getElementById('countdown-to-event');
     const installButton = document.getElementById('install-app-button');
     const reloadButton = document.getElementById('reload-button');
+    const versionDisplay = document.getElementById('app-version-display');
+
     let scheduleData = []; // To store the fetched schedule
 
     // Add listeners when the DOM content is fully loaded
@@ -65,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.reload(); // This reloads the current page
             });
         }
+
+        
+    if (versionDisplay) {
+        versionDisplay.textContent = `Version: ${APP_VERSION}`;
+    }
     });
 
     
