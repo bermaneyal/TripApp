@@ -7,6 +7,7 @@ const urlsToCache = [
     '/style.css',
     '/script.js',
     '/manifest.json',
+    '/schedule.json',
     '/images/LargeTile.scale-100.png'
 ];
 
