@@ -1,4 +1,4 @@
-const APP_VERSION = '2.0.3';
+const APP_VERSION = '2.0.4';
 
 document.addEventListener('DOMContentLoaded', () => {
     let deferredPrompt;
@@ -300,22 +300,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadSchedule() {
         try {
-            let data;
-
-            try {
+                let data;
                 const response = await fetch('schedule.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
                 data = await response.json();
-            
-                // ✅ Save to localStorage
                 localStorage.setItem('scheduleData', JSON.stringify(data));
+        
+                // Save timestamp
+                const now = new Date();
+                localStorage.setItem('scheduleLastUpdated', now.toISOString());
+        
                 console.log('Schedule saved to localStorage.');
-            
+        
             } catch (networkError) {
                 console.warn('Fetch failed, trying localStorage...', networkError);
-            
+        
                 const stored = localStorage.getItem('scheduleData');
                 if (stored) {
                     data = JSON.parse(stored);
