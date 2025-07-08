@@ -1,4 +1,4 @@
-const APP_VERSION = '2.0.4';
+const APP_VERSION = '2.0.5';
 
 document.addEventListener('DOMContentLoaded', () => {
     let deferredPrompt;
@@ -299,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Data Loading ---
 
     async function loadSchedule() {
+       try{
         try {
                 let data;
                 const response = await fetch('schedule.json');
