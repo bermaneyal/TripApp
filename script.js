@@ -299,9 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Data Loading ---
 
     async function loadSchedule() {
-       try{
+       let data;
+        try{
         try {
-                let data;
+                
                 const response = await fetch('schedule.json');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 
