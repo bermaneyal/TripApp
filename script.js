@@ -300,11 +300,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadSchedule() {
         try {
-            const response = await fetch('schedule.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            let data;
+
+            try {
+                const response = await fetch('schedule.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                data = await response.json();
+            
+                // ✅ Save to localStorage
+                localStorage.setItem('scheduleData', JSON.stringify(data));
+                console.log('Schedule saved to localStorage.');
+            
+            } catch (networkError) {
+                console.warn('Fetch failed, trying localStorage...', networkError);
+            
+                const stored = localStorage.getItem('scheduleData');
+                if (stored) {
+                    data = JSON.parse(stored);
+                    console.log('Loaded schedule from localStorage.');
+                } else {
+                    throw new Error('No schedule available in localStorage.');
+                }
             }
-            const data = await response.json();
             // Sort schedule by startTime
             scheduleData = data.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
             displayFullSchedule(scheduleData);
