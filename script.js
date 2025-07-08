@@ -329,6 +329,13 @@ document.addEventListener('DOMContentLoaded', () => {
             displayFullSchedule(scheduleData);
             updateNowAndNext(); // Initial update for "Now & Next"
             setInterval(updateNowAndNext, 30000); // Update every 30 seconds
+            const lastUpdatedDiv = document.getElementById('last-updated');
+            const timestamp = localStorage.getItem('scheduleLastUpdated');
+            if (timestamp && lastUpdatedDiv) {
+                const date = new Date(timestamp);
+                lastUpdatedDiv.textContent = `עודכן לאחרונה: ${date.toLocaleString('he-IL')}`;
+            }
+            
         } catch (error) {
             console.error('Could not load schedule:', error);
             scheduleContainer.innerHTML = '<p style="color: red;">שגיאה בטעינת הלו"ז. נסה לרענן את הדף או בדוק את חיבור האינטרנט.</p>';
