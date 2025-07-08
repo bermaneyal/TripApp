@@ -156,3 +156,20 @@ footer {
 .reload-button:hover {
     background-color: #0056b3;
 }
+
+.past { /* Corrected class name to 'past' */
+    background-color: #e0e0e0; /* A light gray background */
+    color: #888; /* Dimmed text color */
+    opacity: 0.7; /* Make it slightly transparent */
+    border-left: 5px solid #bbb; /* Add a border to the left for emphasis */
+    text-decoration: none; /* Ensure no underline if you had links */
+}
+
+/* Optional: To make titles/details less prominent in past events when using .past */
+.past h3 {
+    color: #666;
+}
+
+.past p {
+    color: #999;
+}
