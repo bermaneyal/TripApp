@@ -1,4 +1,4 @@
-const APP_VERSION = '2.0.7';
+const APP_VERSION = '2.0.8';
 
 document.addEventListener('DOMContentLoaded', () => {
     let deferredPrompt;
